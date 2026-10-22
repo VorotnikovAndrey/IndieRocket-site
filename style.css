@@ -1,0 +1,52 @@
+/* Публичный сайт IndieRocket: о приложении + юридические страницы. Палитра — как у бренда (brand/youtube/README.md). */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  src: url('inter.woff2') format('woff2');
+}
+
+:root {
+  --bg: #1e1f22;
+  --surface: #2b2d31;
+  --line: #3a3c42;
+  --ink: #f2f3f5;
+  --ink-2: #b5bac1;
+  --accent: #5865f2;
+  --lavender: #a78bfa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-2);
+  font: 16px/1.65 'Inter', system-ui, sans-serif;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+header img { width: 44px; height: 44px; border-radius: 12px; }
+header a.brand { color: var(--ink); font-weight: 700; font-size: 20px; text-decoration: none; }
+header a.brand span { color: var(--lavender); }
+nav { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+nav a { color: var(--ink-2); text-decoration: none; }
+nav a:hover, nav a[aria-current] { color: var(--ink); }
+
+h1 { color: var(--ink); font-size: 34px; line-height: 1.2; margin: 0 0 8px; }
+h2 { color: var(--ink); font-size: 20px; margin: 36px 0 8px; }
+.muted { font-size: 14px; color: #8a8f98; }
+a { color: var(--lavender); }
+strong { color: var(--ink); }
+ul { padding-left: 22px; }
+li { margin: 4px 0; }
+
+.hero { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.hero p { font-size: 18px; margin: 12px 0 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 24px; }
+.card { padding: 18px; border: 1px solid var(--line); border-radius: 14px; }
+.card b { display: block; color: var(--ink); margin-bottom: 4px; }
+
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; display: flex; gap: 18px; flex-wrap: wrap; }
+footer a { color: var(--ink-2); }
