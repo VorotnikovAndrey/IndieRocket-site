@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>IndieRocket — connecting Threads</title>
+  <link rel="icon" href="../../icon.png">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="../../icon.png" alt="">
+      <a class="brand" href="../../">Indie<span>Rocket</span></a>
+    </header>
+
+    <section class="hero">
+      <h1 id="title">Returning to IndieRocket…</h1>
+      <p id="text">Threads only allows https return addresses, so this page passes the sign-in code straight to the IndieRocket app running on your computer. Nothing is stored or sent anywhere else.</p>
+      <p><a id="again" href="#" hidden>Open IndieRocket again</a></p>
+    </section>
+  </div>
+  <script>
+    // Meta возвращает браузер сюда с ?code=…&state=… (или ?error=…). Передаём параметры как есть
+    // в локальный сервер IndieRocket — он ждёт на постоянном порту (src/shared/threads.ts, THREADS_REDIRECT_PORT).
+    // Код без секрета приложения бесполезен, а секрет хранится только на компьютере пользователя.
+    var target = 'http://127.0.0.1:47617/callback/' + window.location.search
+    var again = document.getElementById('again')
+    again.href = target
+    if (!window.location.search) {
+      document.getElementById('title').textContent = 'Nothing to pass on'
+      document.getElementById('text').textContent = 'This page is used by IndieRocket when you connect Threads. Start the connection from IndieRocket: Settings → Publishing → Threads.'
+    } else {
+      window.location.replace(target)
+      // Если IndieRocket не ждал (вход отменён или окно закрыто), браузер покажет ошибку соединения — даём ссылку на повтор.
+      setTimeout(function () { again.hidden = false }, 2500)
+    }
+  </script>
+</body>
+</html>

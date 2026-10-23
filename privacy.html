@@ -32,6 +32,8 @@
     <ul>
       <li><strong>TikTok.</strong> When you connect TikTok, you sign in on TikTok’s own website. The app requests the <code>user.info.basic</code> scope to show your display name and avatar, and the <code>video.upload</code> scope (and <code>video.publish</code> only if you enable direct posting) to send videos you choose to your TikTok account. Access tokens are encrypted with Windows data protection and stored only on your computer. Videos are uploaded only after you press the send button and confirm.</li>
       <li><strong>YouTube (Google).</strong> When you connect a YouTube channel, you sign in with Google in your browser. The app uses the YouTube Data API to upload the videos you choose and to set their titles, descriptions and thumbnails. Tokens are encrypted and stored only on your computer. IndieRocket’s use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.</li>
+      <li><strong>Instagram and Threads (Meta).</strong> You connect them through your own Meta app and sign in on Meta’s website. The app publishes only the posts and videos you choose and, if you turn on statistics, reads their view and reaction counts. Threads accepts only https return addresses, so after you sign in Meta sends your browser to a static page on this site (<code>/threads/callback/</code>), which immediately passes the one-time sign-in code to the app on your computer. The page stores nothing, and the code is useless without your app secret, which never leaves your computer. Tokens are encrypted and stored only on your computer.</li>
+      <li><strong>Bluesky.</strong> You connect Bluesky with an app password created in Bluesky’s settings (the app refuses your main password). The app publishes only the posts and videos you choose and reads their public like, reply and repost counts. The app password is encrypted and stored only on your computer.</li>
       <li><strong>Steam.</strong> The app reads public information about your game from the Steam store. Steamworks reports are imported from files you select.</li>
       <li><strong>Anthropic Claude (optional).</strong> If you add your own Claude API key, texts you ask the app to write or review (game description, store page information) are sent to Anthropic to generate the answer, under Anthropic’s terms. The key is encrypted and stored only on your computer.</li>
     </ul>
@@ -45,7 +47,7 @@
     </ul>
 
     <h2>Disconnecting and deleting data</h2>
-    <p>You can disconnect TikTok or YouTube at any time in Settings → Publishing. The app then deletes the stored tokens and asks the service to revoke access. You can also revoke access in your TikTok or Google account settings. Deleting the app’s data folder removes all local data.</p>
+    <p>You can disconnect any connected service at any time in Settings → Publishing. The app then deletes the stored tokens and, where the service supports it, asks it to revoke access. You can also revoke access in your TikTok, Google, Meta or Bluesky account settings. Deleting the app’s data folder removes all local data.</p>
 
     <h2>Children</h2>
     <p>The app is intended for game developers and is not directed at children under 13.</p>
